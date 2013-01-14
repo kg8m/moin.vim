@@ -3,7 +3,7 @@
 " Maintainer:   Michael Lamertz <mike@perl-ronin.de>
 " Contributors: David O'Callaghan <david.ocallaghan@cs.tcd.ie>
 "               Tony Garland <Tony.Garland@fluke.com>
-" Last Change:  $Id: moin.vim,v 1.4 2005/04/28 08:14:19 mlamertz Exp $
+" Last Change:  14-Jan-2013.4 2005/04/28 08:14:19 mlamertz Exp $
 
 " Bugs:         Parsing of mixed bold-italic not yet implemented
 "               Tables not yet implemented
@@ -13,9 +13,6 @@ if version <600
 elsif exists("b:current_syntax")
     finish
 endif
-
-syn clear
-hi clear
 
 " headings
 syn match       moinHeader              /^\(=\{1,5}\).*\1$/
