@@ -3,7 +3,7 @@ au FileType moin setl foldmethod=expr foldexpr=FoldMoinHeading(v:lnum)
 
 function! FoldMoinHeading(lnum)
   let line = getline(a:lnum)
-  let match = matchstr(line, '^\zs\(=\{1,5}\)\ze\s\+.*\s\+\1\s*\(#.\+\)\=$')
+  let match = matchstr(line, '^\zs\(=\{1,6}\)\ze\s\+.*\s\+\1\s*\(#.\+\)\=$')
   if len(match) <= 1
       return '='
   else
