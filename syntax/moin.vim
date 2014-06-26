@@ -26,6 +26,7 @@ syn match       moinSubscript           /\(,\{2}\).\{-}\1/
 syn match       moinSuperscript         /\(\^\).\{-}\1/
 syn match       moinTypewriter          /\(`\).\{-}\1/
 syn match       moinMacro               /\[\{2}.\{-}\]\{2}/
+syn match       moinDel                 /\(\~\{2}\)[^~]\+\1/
 
 " Codeblocks
 syn region      moinPreformatted        start=/{{{/ end=/}}}/
@@ -74,6 +75,7 @@ if version >= 508 || !exists("did_acedb_syn_inits")
     HiLink      moinTypewriter          Identifier
     HiLink      moinMacro               Define
     HiLink      moinPragma              Define
+    HiLink      moinDel                 Comment
 
     HiLink      moinPreformatted        String
 
