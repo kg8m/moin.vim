@@ -15,7 +15,7 @@ elseif exists("b:current_syntax")
 endif
 
 " headings
-syn match       moinHeader              /^\(=\{1,6}\).*\1 *[#_a-zA-Z0-9]*$/
+syn match       moinHeader              /\v^(\={1,6})\s+.*(\s+\1\s*(#.+)?)?$/
 
 " inline markup
 syn match       moinItalic              /\('\{2}\)[^']\+\1/
