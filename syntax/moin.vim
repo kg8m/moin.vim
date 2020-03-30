@@ -13,7 +13,7 @@ if exists("b:current_syntax")
 endif
 
 " headings
-syntax match  moinHeader          /\v^(\={1,6})\s+.*(\s+\1\s*(#.+)?)?$/
+syntax match  moinHeader          /\v^\>?\s*(\={1,6})\s+.*(\s+\1\s*(#.+)?)?$/
 
 " inline markup
 syntax match  moinItalic          /\('\{2}\)[^']\+\1/
@@ -37,19 +37,22 @@ syntax match  moinNormalURL       /\w\+:\/\/\S\+/
 syntax match  moinEmail           /\S\+@\S\+/
 
 " lists
-syntax match  moinBulletList      /^\(\s\+\)\zs\*\ze\s/
-syntax match  moinNumberedList    /^\(\s\+\)\zs1\.\ze\s/
-syntax match  moinAlphalist       /^\(\s\+\)\zsa\.\ze\s/
-syntax match  moinRomanlist       /^\(\s\+\)\zsi\.\ze\s/
-syntax match  moinBigromanlist    /^\(\s\+\)\zsI\.\ze\s/
-syntax match  moinDescriptionlist /^\(\s\+\)\zs.\{-}::\ze\s/
+syntax match  moinBulletList      /^>\?\s*\zs\*\ze\s/
+syntax match  moinNumberedList    /^>\?\s*\zs1\.\ze\s/
+syntax match  moinAlphalist       /^>\?\s*\zsa\.\ze\s/
+syntax match  moinRomanlist       /^>\?\s*\zsi\.\ze\s/
+syntax match  moinBigromanlist    /^>\?\s*\zsI\.\ze\s/
+syntax match  moinDescriptionlist /^>\?\s*\zs.\{-}::\ze\s/
 
 " rules
-syntax match  moinRule            /^-\{4,}/
+syntax match  moinRule            /^>\?\s*-\{4,}/
 
 " comments/pragmas
-syntax match  moinComment         /^##.*$/
-syntax match  moinPragma          /^#\w\+.*$/
+syntax match  moinComment         /^>\?\s*##.*$/
+syntax match  moinPragma          /^>\?\s*#\w\+.*$/
+
+" others
+syntax region moinBlockquote      start=/^>/ end=/$/ contains=moinHeader,moinItalic,moinBold,moinBoldItalic,moinUnderline,moinSubscript,moinSuperscript,moinTypewriter,moinMacro,moinDel,moinPreformatted,moinWikiWord,moinBracketLink,moinSubLink,moinNormalURL,moinEmail,moinBulletList,moinNumberedList,moinAlphalist,moinRomanlist,moinBigromanlist,moinDescriptionlist,moinRule,moinComment,moinPragma
 
 " Define the default highlighting.
 command -nargs=+ HighlightLink highlight def link <args>
@@ -85,6 +88,8 @@ HighlightLink moinRule            Special
 
 HighlightLink moinComment         Comment
 HighlightLink moinPragma          Define
+
+HighlightLink moinBlockquote      Comment
 
 delcommand HighlightLink
 
