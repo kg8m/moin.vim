@@ -13,80 +13,80 @@ if exists("b:current_syntax")
 endif
 
 " headings
-syn match       moinHeader              /\v^(\={1,6})\s+.*(\s+\1\s*(#.+)?)?$/
+syntax match       moinHeader              /\v^(\={1,6})\s+.*(\s+\1\s*(#.+)?)?$/
 
 " inline markup
-syn match       moinItalic              /\('\{2}\)[^']\+\1/
-syn match       moinBold                /\('\{3}\)[^']\+\1/
-syn match       moinBoldItalic          /\('\{5}\)[^']\+\1/
-syn match       moinUnderline           /\(_\{2}\).\{-}\1/
-syn match       moinSubscript           /\(,\{2}\).\{-}\1/
-syn match       moinSuperscript         /\(\^\).\{-}\1/
-syn match       moinTypewriter          /\(`\).\{-}\1/
-syn match       moinMacro               /\[\{2}.\{-}\]\{2}/
-syn match       moinDel                 /\(\~\{2}\)[^~]\+\1/
+syntax match       moinItalic              /\('\{2}\)[^']\+\1/
+syntax match       moinBold                /\('\{3}\)[^']\+\1/
+syntax match       moinBoldItalic          /\('\{5}\)[^']\+\1/
+syntax match       moinUnderline           /\(_\{2}\).\{-}\1/
+syntax match       moinSubscript           /\(,\{2}\).\{-}\1/
+syntax match       moinSuperscript         /\(\^\).\{-}\1/
+syntax match       moinTypewriter          /\(`\).\{-}\1/
+syntax match       moinMacro               /\[\{2}.\{-}\]\{2}/
+syntax match       moinDel                 /\(\~\{2}\)[^~]\+\1/
 
 " Codeblocks
-syn region      moinPreformatted        start=/{{{/ end=/}}}/
+syntax region      moinPreformatted        start=/{{{/ end=/}}}/
 
 " Links
-syn match       moinWikiWord            /\(\w\+:\)\?\u[a-z0-9]\+\u[a-z0-9]\+\(\u[a-z0-9]\+\)*/
-syn match       moinBracketLink         /\[[^[\]]\+\]/
-syn match       moinSubLink             /\(\w\+\|\.\.\)\?\// nextgroup=moinWikiWord
-syn match       moinNormalURL           /\w\+:\/\/\S\+/
-syn match       moinEmail               /\S\+@\S\+/
+syntax match       moinWikiWord            /\(\w\+:\)\?\u[a-z0-9]\+\u[a-z0-9]\+\(\u[a-z0-9]\+\)*/
+syntax match       moinBracketLink         /\[[^[\]]\+\]/
+syntax match       moinSubLink             /\(\w\+\|\.\.\)\?\// nextgroup=moinWikiWord
+syntax match       moinNormalURL           /\w\+:\/\/\S\+/
+syntax match       moinEmail               /\S\+@\S\+/
 
 " lists
-syn match       moinBulletList          /^\(\s\+\)\zs\*\ze\s/
-syn match       moinNumberedList        /^\(\s\+\)\zs1\.\ze\s/
-syn match       moinAlphalist           /^\(\s\+\)\zsa\.\ze\s/
-syn match       moinRomanlist           /^\(\s\+\)\zsi\.\ze\s/
-syn match       moinBigromanlist        /^\(\s\+\)\zsI\.\ze\s/
-syn match       moinDescriptionlist     /^\(\s\+\)\zs.\{-}::\ze\s/
+syntax match       moinBulletList          /^\(\s\+\)\zs\*\ze\s/
+syntax match       moinNumberedList        /^\(\s\+\)\zs1\.\ze\s/
+syntax match       moinAlphalist           /^\(\s\+\)\zsa\.\ze\s/
+syntax match       moinRomanlist           /^\(\s\+\)\zsi\.\ze\s/
+syntax match       moinBigromanlist        /^\(\s\+\)\zsI\.\ze\s/
+syntax match       moinDescriptionlist     /^\(\s\+\)\zs.\{-}::\ze\s/
 
 " rules
-syn match       moinRule                /^-\{4,}/
+syntax match       moinRule                /^-\{4,}/
 
 " comments/pragmas
-syn match       moinComment             /^##.*$/
-syn match       moinPragma              /^#\w\+.*$/
+syntax match       moinComment             /^##.*$/
+syntax match       moinPragma              /^#\w\+.*$/
 
 " Define the default highlighting.
-command -nargs=+ HiLink hi def link <args>
+command -nargs=+ HighlightLink highlight def link <args>
 
-HiLink      moinHeader              Function
+HighlightLink      moinHeader              Function
 
-HiLink      moinItalic              Identifier
-HiLink      moinBold                Identifier
-HiLink      moinBoldItalic          Identifier
-HiLink      moinUnderline           Identifier
-HiLink      moinSubscript           Identifier
-HiLink      moinSuperscript         Identifier
-HiLink      moinTypewriter          Identifier
-HiLink      moinMacro               Define
-HiLink      moinPragma              Define
-HiLink      moinDel                 Comment
+HighlightLink      moinItalic              Identifier
+HighlightLink      moinBold                Identifier
+HighlightLink      moinBoldItalic          Identifier
+HighlightLink      moinUnderline           Identifier
+HighlightLink      moinSubscript           Identifier
+HighlightLink      moinSuperscript         Identifier
+HighlightLink      moinTypewriter          Identifier
+HighlightLink      moinMacro               Define
+HighlightLink      moinPragma              Define
+HighlightLink      moinDel                 Comment
 
-HiLink      moinPreformatted        String
+HighlightLink      moinPreformatted        String
 
-HiLink      moinWikiWord            Statement
-HiLink      moinBracketLink         Statement
-HiLink      moinNormalURL           Statement
-HiLink      moinSubLink             Statement
-HiLink      moinInterLink           Statement
-HiLink      moinEmail               Statement
+HighlightLink      moinWikiWord            Statement
+HighlightLink      moinBracketLink         Statement
+HighlightLink      moinNormalURL           Statement
+HighlightLink      moinSubLink             Statement
+HighlightLink      moinInterLink           Statement
+HighlightLink      moinEmail               Statement
 
-HiLink      moinBulletList          Type
-HiLink      moinNumberedList        Type
-HiLink      moinAlphalist           Type
-HiLink      moinRomanlist           Type
-HiLink      moinBigromanlist        Type
-HiLink      moinDescriptionlist     Type
+HighlightLink      moinBulletList          Type
+HighlightLink      moinNumberedList        Type
+HighlightLink      moinAlphalist           Type
+HighlightLink      moinRomanlist           Type
+HighlightLink      moinBigromanlist        Type
+HighlightLink      moinDescriptionlist     Type
 
-HiLink      moinRule                Special
+HighlightLink      moinRule                Special
 
-HiLink      moinComment             Comment
+HighlightLink      moinComment             Comment
 
-delcommand HiLink
+delcommand HighlightLink
 
 let b:current_syntax = "moin"
