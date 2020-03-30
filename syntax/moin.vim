@@ -8,10 +8,8 @@
 " Bugs:         Parsing of mixed bold-italic not yet implemented
 "               Tables not yet implemented
 
-if version <600
-    syntax clear
-elseif exists("b:current_syntax")
-    finish
+if exists("b:current_syntax")
+  finish
 endif
 
 " headings
@@ -54,50 +52,41 @@ syn match       moinComment             /^##.*$/
 syn match       moinPragma              /^#\w\+.*$/
 
 " Define the default highlighting.
-" For version 5.7 and earlier: only when not done already
-" For version 5.8 and later: only when an item doesn't have highlighting yet
-if version >= 508 || !exists("did_acedb_syn_inits")
-    if version < 508
-        let did_acedb_syn_inits = 1
-        command -nargs=+ HiLink hi link <args>
-    else
-        command -nargs=+ HiLink hi def link <args>
-    endif
+command -nargs=+ HiLink hi def link <args>
 
-    HiLink      moinHeader              Function
+HiLink      moinHeader              Function
 
-    HiLink      moinItalic              Identifier
-    HiLink      moinBold                Identifier
-    HiLink      moinBoldItalic          Identifier
-    HiLink      moinUnderline           Identifier
-    HiLink      moinSubscript           Identifier
-    HiLink      moinSuperscript         Identifier
-    HiLink      moinTypewriter          Identifier
-    HiLink      moinMacro               Define
-    HiLink      moinPragma              Define
-    HiLink      moinDel                 Comment
+HiLink      moinItalic              Identifier
+HiLink      moinBold                Identifier
+HiLink      moinBoldItalic          Identifier
+HiLink      moinUnderline           Identifier
+HiLink      moinSubscript           Identifier
+HiLink      moinSuperscript         Identifier
+HiLink      moinTypewriter          Identifier
+HiLink      moinMacro               Define
+HiLink      moinPragma              Define
+HiLink      moinDel                 Comment
 
-    HiLink      moinPreformatted        String
+HiLink      moinPreformatted        String
 
-    HiLink      moinWikiWord            Statement
-    HiLink      moinBracketLink         Statement
-    HiLink      moinNormalURL           Statement
-    HiLink      moinSubLink             Statement
-    HiLink      moinInterLink           Statement
-    HiLink      moinEmail               Statement
+HiLink      moinWikiWord            Statement
+HiLink      moinBracketLink         Statement
+HiLink      moinNormalURL           Statement
+HiLink      moinSubLink             Statement
+HiLink      moinInterLink           Statement
+HiLink      moinEmail               Statement
 
-    HiLink      moinBulletList          Type
-    HiLink      moinNumberedList        Type
-    HiLink      moinAlphalist           Type
-    HiLink      moinRomanlist           Type
-    HiLink      moinBigromanlist        Type
-    HiLink      moinDescriptionlist     Type
+HiLink      moinBulletList          Type
+HiLink      moinNumberedList        Type
+HiLink      moinAlphalist           Type
+HiLink      moinRomanlist           Type
+HiLink      moinBigromanlist        Type
+HiLink      moinDescriptionlist     Type
 
-    HiLink      moinRule                Special
+HiLink      moinRule                Special
 
-    HiLink      moinComment             Comment
+HiLink      moinComment             Comment
 
-  delcommand HiLink
-endif
+delcommand HiLink
 
 let b:current_syntax = "moin"
