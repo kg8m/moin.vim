@@ -64,16 +64,14 @@ HighlightLink moinSubscript       Identifier
 HighlightLink moinSuperscript     Identifier
 HighlightLink moinTypewriter      Identifier
 HighlightLink moinMacro           Define
-HighlightLink moinPragma          Define
 HighlightLink moinDel             Comment
 
 HighlightLink moinPreformatted    String
 
 HighlightLink moinWikiWord        Statement
 HighlightLink moinBracketLink     Statement
-HighlightLink moinNormalURL       Statement
 HighlightLink moinSubLink         Statement
-HighlightLink moinInterLink       Statement
+HighlightLink moinNormalURL       Statement
 HighlightLink moinEmail           Statement
 
 HighlightLink moinBulletList      Type
@@ -86,6 +84,7 @@ HighlightLink moinDescriptionlist Type
 HighlightLink moinRule            Special
 
 HighlightLink moinComment         Comment
+HighlightLink moinPragma          Define
 
 delcommand HighlightLink
 
