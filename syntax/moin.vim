@@ -16,15 +16,15 @@ endif
 syntax match  moinHeader          /\v^\>?\s*(\={1,6})\s+.*(\s+\1\s*(#.+)?)?$/
 
 " inline markup
-syntax match  moinItalic          /\('\{2}\)[^']\+\1/
-syntax match  moinBold            /\('\{3}\)[^']\+\1/
-syntax match  moinBoldItalic      /\('\{5}\)[^']\+\1/
+syntax match  moinItalic          /\('\{2}\).\{-}\1/
+syntax match  moinBold            /\('\{3}\).\{-}\1/
+syntax match  moinBoldItalic      /\('\{5}\).\{-}\1/
 syntax match  moinUnderline       /\(_\{2}\).\{-}\1/
 syntax match  moinSubscript       /\(,\{2}\).\{-}\1/
 syntax match  moinSuperscript     /\(\^\).\{-}\1/
 syntax match  moinTypewriter      /\(`\).\{-}\1/
 syntax match  moinMacro           /\[\{2}.\{-}\]\{2}/
-syntax match  moinDel             /\(\~\{2}\)[^~]\+\1/
+syntax match  moinDel             /\(\~\{2}\).\{-}\1/
 
 " Codeblocks
 syntax region moinPreformatted    start=/{{{/ end=/}}}/
